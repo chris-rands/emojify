@@ -1,6 +1,7 @@
 # emojify_python_script
 
 **Description**
+
 Emojify your python script by converting an input script to an output script that functions the same (hopefully) but encodes the code as emojis.
 
 **Usage**
