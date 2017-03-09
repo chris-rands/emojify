@@ -1,13 +1,13 @@
 # emojify_python_script
 
-Description:
+**Description**
 Emojify your python script by converting an input script to an output script that functions the same (hopefully) but encodes the code as emojis.
 
-Usage:
+**Usage**
 
 python emojify_python_script.py input_script.py output_script.py
 
-Example:
+**Example**
 
 cat input_script.py 
 
@@ -29,13 +29,13 @@ python output_script.py
     hello world
     4 + 4 = 8
 
-Disclaimers:
+**Disclaimer**
 
 Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break.
 
 
-Licence:
+**Licence**
 
-Copyright (c) 2017, crands.
+Copyright (c) 2017, Chris Rands.
 
 Redistribution and use of this code, with or without modification, are permitted provided that the the above copyright notice is included.
