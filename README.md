@@ -31,9 +31,8 @@ python output_script.py
 
 Disclaimers:
 
-Not tested on complex scripts, so don't rely on this script to work, it is probably very easy to break.
+Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break.
 
-The script will not always produce an identical output for the same input; replace the dictionaries with collections.OrderedDict to achieve that.
 
 Licence:
 
