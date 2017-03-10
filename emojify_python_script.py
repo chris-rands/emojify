@@ -33,10 +33,8 @@ python output_script.py
 # Disclaimer
 Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break.
 
-
 # Licence
 Copyright (c) 2017, Chris Rands.
-
 Redistribution and use of this code, with or without modification, are permitted provided that the the above copyright notice is included.
 '''
 
