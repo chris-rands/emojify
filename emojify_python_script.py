@@ -34,8 +34,9 @@ except NameError:
 __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
 
-EMOJIS = [':)',':D',':P',':S',':(','=)','=/',':/',':{',';)']
+EMOJIS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
 MAX_STR_LEN = 70
+
 
 def run_argparse():
     """User arguments"""
@@ -47,9 +48,11 @@ def run_argparse():
     parser.add_argument('-o', '--output', required=True, help='output python script name')
     return parser.parse_args()
 
+
 def chunk_string(s, n):
     """Chunk string to max length of n"""
     return '\n'.join('{}\\'.format(s[i:i+n]) for i in range(0, len(s), n)).rstrip('\\')
+
 
 def emojify_string(in_s):
     """Convert input string to emojified ouput string"""
@@ -61,11 +64,13 @@ def emojify_string(in_s):
            '"{}"\n.split("  ")])))\n'.format(pformat(d2), chunk_string('  '.join(
            ' '.join(d1[int(i)] for i in str(ord(c))) for c in in_s), MAX_STR_LEN)))
 
+
 def main(in_file, out_file):
     """Read and write output files"""
     with open(in_file) as in_f, open(out_file, 'w') as out_f:
         # This assumes it's ok to read the entire input file into memory
-        out_f.write(emojify_string(in_f.read()))  
+        out_f.write(emojify_string(in_f.read()))
+
 
 if __name__ == '__main__':
     args = run_argparse()
