@@ -8,6 +8,9 @@ Obfuscate your python script by converting an input script to an output script t
 
 `python emojify_python_script.py --input input_script.py --output output_script.py`
 
+For help:
+`python emojify_python_script.py --help`
+
 **Example**
 
 `input_script.py` contains:
