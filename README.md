@@ -55,7 +55,7 @@ running `python output_script.py` outputs:
 
 Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters.
 
-**Licence waffle**
+**Licence**
 
 Copyright (c) 2018, Chris Rands.
 Redistribution and use of this code, with or without modification, are permitted, provided that the the above copyright notice is included.
