@@ -43,6 +43,7 @@ class TestFunctions(unittest.TestCase):
 
 
 def main():
+    """Run unit tests"""
     if sys.version_info.major != 3:
         print('Error: unit tests for Python 3 only, exiting')
         raise SystemExit
