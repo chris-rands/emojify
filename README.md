@@ -20,7 +20,7 @@ For help:
         return n1 + n2
     print('4 + 4 = {}'.format(add(4,4)))
 
-running `python emojify_python_script.py input_script.py output_script.py`
+running `python emojify_python_script.py --input input_script.py --output output_script.py`
 
 `output_script.py` contains:
 
