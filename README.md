@@ -56,7 +56,7 @@ running `python output_script.py` outputs:
 
 **Disclaimer**
 
-Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters.
+Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters. Also note if you want to securely protect your code from the eyes of others, this is NOT a good way, so find another way.
 
 **Licence**
 
