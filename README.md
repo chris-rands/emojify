@@ -5,6 +5,7 @@
 Obfuscate your python script by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons.
 
 **Usage**
+
 `python emojify_python_script.py --input input_script.py --output output_script.py`
 
 **Example**
@@ -51,8 +52,10 @@ running `python output_script.py` outputs:
     4 + 4 = 8
 
 **Disclaimer**
+
 Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters.
 
 **Licence waffle**
+
 Copyright (c) 2018, Chris Rands.
 Redistribution and use of this code, with or without modification, are permitted, provided that the the above copyright notice is included.
