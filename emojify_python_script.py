@@ -66,7 +66,7 @@ def emojify_string(in_s):
 
 
 def main(in_file, out_file):
-    """Read and write output files"""
+    """Read input and write output file"""
     with open(in_file) as in_f, open(out_file, 'w') as out_f:
         # This assumes it's ok to read the entire input file into memory
         out_f.write(emojify_string(in_f.read()))
