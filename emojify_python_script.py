@@ -1,49 +1,72 @@
-import sys
+#!/usr/bin/env python
 
 '''
-emojify_python_script
+emojify_python_script.py
 
-#Description
-Obfuscate your python script by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons.
+# Description
+Obfuscate your python script by converting an input script to an output script
+that functions the same (hopefully) but encodes the code as emoji icons.
 
-#Usage
-python emojify_python_script.py input_script.py output_script.py
-
-#Example
-cat input_script.py 
-
-    print('hello world')
-    def add(n1,n2):
-        return n1 + n2
-    print('4 + 4 = {}'.format(add(4,4)))
-
-python emojify_python_script.py input_script.py output_script.py
-
-cat output_script.py 
-
-    exec("".join(map(chr,[int("".join(str({':)': 0, ':D': 1, ':P': 2, ':S': 3, ':(': 4, '=)': 5, '=/': 6, ':/': 7, ':{': 8, ';)': 9}[i]) for i in x.split())) for x in 
-    ":D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  :D :) :(  :D :) :D  :D :) :{  :D :) :{  :D :D :D  :S :P  :D :D ;)  :D :D :D  :D :D :(  :D :) :{  :D :) :)  :S ;)  :( :D  :D :)  :D :) :)  :D :) :D  :D :) :P  :S :P  ;) :/  :D :) :)  :D :) :)  :( :)  :D :D :)  :( ;)  :( :(  :D :D :)  =) :)  :( :D  =) :{  :D :)  :S :P  :S :P  :S :P  :S :P  :D :D :(  :D :) :D  :D :D =/  :D :D :/  :D :D :(  :D :D :)  :S :P  :D :D :)  :( ;)  :S :P  :( :S  :S :P  :D :D :)  =) :)  :D :)  :D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  =) :P  :S :P  :( :S  :S :P  =) :P  :S :P  =/ :D  :S :P  :D :P :S  :D :P =)  :S ;)  :( =/  :D :) :P  :D :D :D  :D :D :(  :D :) ;)  ;) :/  :D :D =/  :( :)  ;) :/  :D :) :)  :D :) :)  :( :)  =) :P  :( :(  =) :P  :( :D  :( :D  :( :D  :D :)"
-    .split("  ")])))
-
-python output_script.py 
-
-    hello world
-    4 + 4 = 8
+# Usage
+python emojify_python_script.py -h
+python emojify_python_script.py --input input_script.py --output output_script.py
 
 # Disclaimer
-Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break.
+Not tested on complex scripts, so don't rely on this script to work,
+not guaranteed to work at all, and it is probably easy to break.
+One case it will fail is with non-unicode characters.
 
-# Licence
-Copyright (c) 2017, Chris Rands.
-Redistribution and use of this code, with or without modification, are permitted provided that the the above copyright notice is included.
+# License waffle
+Copyright (c) 2018, Chris Rands.
+Redistribution and use of this code, with or without modification, are permitted,
+provided that the the above copyright notice is included.
 '''
 
+import argparse
+from collections import OrderedDict
+from pprint import pformat
+
+try:
+    range = xrange
+except NameError:
+    pass  # Python 3
+
+__author__ = 'Chris Rands'
+__copyright__ = 'Copyright (c) 2018, Chris Rands'
+
+EMOJIS = [':)',':D',':P',':S',':(','=)','=/',':/',':{',';)']
+MAX_STR_LEN = 70
+
+def run_argparse():
+    """User arguments"""
+    parser = argparse.ArgumentParser(description='''
+    Obfuscate your python script by converting an input script to an output script
+    that functions the same (hopefully) but encodes the code as emoji icons
+    -- Chris Rands, 2018''')
+    parser.add_argument('-i', '--input', required=True, help='input python script name')
+    parser.add_argument('-o', '--output', required=True, help='output python script name')
+    return parser.parse_args()
+
+def chunk_string(s, n):
+    """Chunk string to max length of n"""
+    return '\n'.join('{}\\'.format(s[i:i+n]) for i in range(0, len(s), n)).rstrip('\\')
+
+def emojify_string(in_s):
+    """Convert input string to emojified ouput string"""
+    # Using OrderedDict to guarantee output order is the same
+    d1 = OrderedDict(enumerate(EMOJIS))
+    d2 = OrderedDict((v, k) for k, v in d1.items())
+    return ('from collections import OrderedDict\n'
+           'exec("".join(map(chr,[int("".join(str({}[i]) for i in x.split())) for x in\n'
+           '"{}"\n.split("  ")])))\n'.format(pformat(d2), chunk_string('  '.join(
+           ' '.join(d1[int(i)] for i in str(ord(c))) for c in in_s), MAX_STR_LEN)))
+
 def main(in_file, out_file):
-    emojis = [':)',':D',':P',':S',':(','=)','=/',':/',':{',';)']
-    d1 = dict(enumerate(emojis))
-    d2 = {v:k for k,v in d1.items()}
-    with open(in_file) as in_f, open(out_file,'w') as out_f:
-        out_f.write('exec("".join(map(chr,[int("".join(str({}[i]) for i in x.split())) for x in \n"{}"\n.split("  ")])))\n'.format(d2,'  '.join(' '.join(d1[int(i)] for i in str(ord(c))) for c in in_f.read())))
+    """Read and write output files"""
+    with open(in_file) as in_f, open(out_file, 'w') as out_f:
+        # This assumes it's ok to read the entire input file into memory
+        out_f.write(emojify_string(in_f.read()))  
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    args = run_argparse()
+    main(args.input, args.output)
