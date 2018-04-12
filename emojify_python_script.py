@@ -38,6 +38,7 @@ __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
 
 EMOTICONS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
+# TODO: Add other alphabets as options including real emojis
 MAX_STR_LEN = 70
 
 
