@@ -17,12 +17,10 @@ provided that the the above copyright notice is included.
 
 import sys
 import unittest
-from emojify_python_script import wacky_encode_string
+from emojify_python_script import wacky_encode_string, EMOTICONS
 
 __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
-
-EMOTICONS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
 
 INPUT1 = "print('hello world')\n"
 OUTPUT1 = 'from collections import OrderedDict\nexec("".join(map(chr,[int("".join(str(OrderedDict([(\':)\', 0),\n             (\':D\', 1),\n             (\':P\', 2),\n             (\':S\', 3),\n             (\':(\', 4),\n             (\'=)\', 5),\n             (\'=/\', 6),\n             (\':/\', 7),\n             (\':{\', 8),\n             (\';)\', 9)])[i]) for i in x.split())) for x in\n":D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  :D :) \\\n:(  :D :) :D  :D :) :{  :D :) :{  :D :D :D  :S :P  :D :D ;)  :D :D :D \\\n :D :D :(  :D :) :{  :D :) :)  :S ;)  :( :D  :D :)"\n.split("  ")])))\n'
