@@ -15,12 +15,14 @@ Redistribution and use of this code, with or without modification, are permitted
 provided that the the above copyright notice is included.
 '''
 
-import unittest
 import sys
-from emojify_python_script import emojify_string
+import unittest
+from emojify_python_script import wacky_encode_string
 
 __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
+
+EMOTICONS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
 
 INPUT1 = "print('hello world')\n"
 OUTPUT1 = 'from collections import OrderedDict\nexec("".join(map(chr,[int("".join(str(OrderedDict([(\':)\', 0),\n             (\':D\', 1),\n             (\':P\', 2),\n             (\':S\', 3),\n             (\':(\', 4),\n             (\'=)\', 5),\n             (\'=/\', 6),\n             (\':/\', 7),\n             (\':{\', 8),\n             (\';)\', 9)])[i]) for i in x.split())) for x in\n":D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  :D :) \\\n:(  :D :) :D  :D :) :{  :D :) :{  :D :D :D  :S :P  :D :D ;)  :D :D :D \\\n :D :D :(  :D :) :{  :D :) :)  :S ;)  :( :D  :D :)"\n.split("  ")])))\n'
@@ -33,13 +35,13 @@ class TestFunctions(unittest.TestCase):
     """Unit tests"""
     # TODO: expand testing
 
-    def test_emojify_string1(self):
+    def test_wacky_encode_string1(self):
         """First test"""
-        self.assertEqual(emojify_string(INPUT1), OUTPUT1)
+        self.assertEqual(wacky_encode_string(INPUT1, EMOTICONS), OUTPUT1)
 
-    def test_emojify_string2(self):
+    def test_wacky_encode_string2(self):
         """Second test"""
-        self.assertEqual(emojify_string(INPUT2), OUTPUT2)
+        self.assertEqual(wacky_encode_string(INPUT2, EMOTICONS), OUTPUT2)
 
 
 def main():

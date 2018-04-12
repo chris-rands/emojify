@@ -5,7 +5,7 @@ emojify_python_script.py
 
 # Description
 Obfuscate your python script by converting an input script to an output script
-that functions the same (hopefully) but encodes the code as emoji icons.
+that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
 
 # Usage
 python emojify_python_script.py -h
@@ -37,7 +37,7 @@ except NameError:
 __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
 
-EMOJIS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
+EMOTICONS = [':)', ':D', ':P', ':S', ':(', '=)', '=/', ':/', ':{', ';)']
 MAX_STR_LEN = 70
 
 
@@ -45,7 +45,7 @@ def run_argparse():
     """User arguments"""
     parser = argparse.ArgumentParser(description='''
     Obfuscate your python script by converting an input script to an output script
-    that functions the same (hopefully) but encodes the code as emoji icons
+    that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
     -- Chris Rands, 2018''')
     parser.add_argument('-i', '--input', required=True, help='input python script name')
     parser.add_argument('-o', '--output', required=True, help='output python script name')
@@ -57,10 +57,10 @@ def chunk_string(s, n):
     return '\n'.join('{}\\'.format(s[i:i+n]) for i in range(0, len(s), n)).rstrip('\\')
 
 
-def emojify_string(in_s):
-    """Convert input string to emojified ouput string"""
+def wacky_encode_string(in_s, alphabet):
+    """Convert input string to encoded output string with the given alphabet"""
     # Using OrderedDict to guarantee output order is the same
-    d1 = OrderedDict(enumerate(EMOJIS))
+    d1 = OrderedDict(enumerate(alphabet))
     d2 = OrderedDict((v, k) for k, v in d1.items())
     return ('from collections import OrderedDict\n'
            'exec("".join(map(chr,[int("".join(str({}[i]) for i in x.split())) for x in\n'
@@ -72,7 +72,7 @@ def main(in_file, out_file):
     """Read input and write output file"""
     with open(in_file) as in_f, open(out_file, 'w') as out_f:
         # This assumes it's ok to read the entire input file into memory
-        out_f.write(emojify_string(in_f.read()))
+        out_f.write(wacky_encode_string(in_f.read(), EMOTICONS))
 
 
 if __name__ == '__main__':
