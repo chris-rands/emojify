@@ -61,6 +61,7 @@ def chunk_string(in_s, n):
 def encode_string(in_s, alphabet):
     """Convert input string to encoded output string with the given alphabet"""
     # Using OrderedDict to guarantee output order is the same
+    # Note Python 2 and 3 inputs differ slightly due to pformat()
     d1 = OrderedDict(enumerate(alphabet))
     d2 = OrderedDict((v, k) for k, v in d1.items())
     return ('from collections import OrderedDict\n'
