@@ -17,7 +17,7 @@ provided that the the above copyright notice is included.
 
 import sys
 import unittest
-from emojify_python_script import wacky_encode_string, EMOTICONS
+from emojify_python_script import encode_string, EMOTICONS
 
 __author__ = 'Chris Rands'
 __copyright__ = 'Copyright (c) 2018, Chris Rands'
@@ -33,13 +33,13 @@ class TestFunctions(unittest.TestCase):
     """Unit tests"""
     # TODO: expand testing
 
-    def test_wacky_encode_string1(self):
+    def test_encode_string1(self):
         """First test"""
-        self.assertEqual(wacky_encode_string(INPUT1, EMOTICONS), OUTPUT1)
+        self.assertEqual(encode_string(INPUT1, EMOTICONS), OUTPUT1)
 
-    def test_wacky_encode_string2(self):
+    def test_encode_string2(self):
         """Second test"""
-        self.assertEqual(wacky_encode_string(INPUT2, EMOTICONS), OUTPUT2)
+        self.assertEqual(encode_string(INPUT2, EMOTICONS), OUTPUT2)
 
 
 def main():
