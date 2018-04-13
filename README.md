@@ -11,6 +11,9 @@ Obfuscate your python script by converting an input script to an output script t
 For help:
 `python emojify_python_script.py --help`
 
+For unit testing:
+`python test_emojify_python_script.py`
+
 **Example**
 
 `input_script.py` contains:
