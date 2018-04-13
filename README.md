@@ -60,5 +60,5 @@ Not tested on complex scripts, so don't rely on this script to work, not guarant
 
 **Licence**
 
-Copyright (c) 2018, Chris Rands.
+Copyright (c) 2017-2018, Chris Rands.
 Redistribution and use of this code, with or without modification, are permitted, provided that the the above copyright notice is included.
