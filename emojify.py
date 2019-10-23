@@ -1,28 +1,11 @@
 #!/usr/bin/env python
 
 '''
-emojify_python_script.py
+emojify.py
 
-# Description
-Obfuscate your python script by converting an input script to an output script
-that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
-
-# Usage
-python emojify_python_script.py -h
-python emojify_python_script.py --input input_script.py --output output_script.py
-
-# Disclaimer
-Not tested on complex scripts, so don't rely on this script to work,
-not guaranteed to work at all, and it is probably easy to break.
-One case it will fail is with non-unicode characters.
-
-Also note if you want to securely protect your code from the eyes of others,
-this is NOT a good way, so find another way.
-
-# License
-Copyright (c) 2017-2018, Chris Rands.
-Redistribution and use of this code, with or without modification, are permitted,
-provided that the the above copyright notice is included.
+Obfuscate your python script (or indeed any plain text file) by converting an 
+input script to an output script that functions the same (hopefully) but 
+encodes the code as emoji icons, currently emoticons.
 '''
 
 import argparse
@@ -30,7 +13,7 @@ from collections import OrderedDict
 from pprint import pformat
 
 __author__ = 'Chris Rands'
-__copyright__ = 'Copyright (c) 2017-2018, Chris Rands'
+__copyright__ = 'Copyright (c) 2017-2019, Chris Rands'
 
 try:
     range = xrange
@@ -47,7 +30,7 @@ def run_argparse():
     parser = argparse.ArgumentParser(description='''
     Obfuscate your python script by converting an input script to an output script
     that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
-    -- Chris Rands, 2017-2018''')
+    -- Chris Rands, 2017-2019''')
     parser.add_argument('-i', '--input', required=True, help='input python script name')
     parser.add_argument('-o', '--output', required=True, help='output python script name')
     return parser.parse_args()

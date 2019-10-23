@@ -1,18 +1,18 @@
-# emojify_python_script
+# emojify :)
 
 **Description**
 
-Obfuscate your python script by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
+Obfuscate your python script (or indeed any plain text file) by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
 
 **Usage**
 
-`python emojify_python_script.py --input input_script.py --output output_script.py`
+`python emojify.py --input input_script.py --output output_script.py`
 
 For help:
-`python emojify_python_script.py --help`
+`python emojify.py --help`
 
 For unit testing:
-`python test_emojify_python_script.py`
+`python test_emojify.py`
 
 **Example**
 
@@ -23,7 +23,7 @@ For unit testing:
         return n1 + n2
     print('4 + 4 = {}'.format(add(4,4)))
 
-running `python emojify_python_script.py --input input_script.py --output output_script.py`
+running `python emojify.py --input input_script.py --output output_script.py`
 
 `output_script.py` contains:
 

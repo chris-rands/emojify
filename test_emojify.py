@@ -1,26 +1,17 @@
 #!/usr/bin/env python
 
 '''
-test_emojify_python_script.py
+test_emojify.py
 
-# Description
-Test emojify_python_script.py for basic functionality
-
-# Usage
-python test_emojify_python_script.py
-
-# License
-Copyright (c) 2018, Chris Rands.
-Redistribution and use of this code, with or without modification, are permitted,
-provided that the the above copyright notice is included.
+Test emojify.py for basic functionality
 '''
 
 import sys
 import unittest
-from emojify_python_script import encode_string, EMOTICONS
+from emojify import encode_string, EMOTICONS
 
 __author__ = 'Chris Rands'
-__copyright__ = 'Copyright (c) 2018, Chris Rands'
+__copyright__ = 'Copyright (c) 2019, Chris Rands'
 
 INPUT1 = "print('hello world')\n"
 OUTPUT1 = 'from collections import OrderedDict\nexec("".join(map(chr,[int("".join(str(OrderedDict([(\':)\', 0),\n             (\':D\', 1),\n             (\':P\', 2),\n             (\':S\', 3),\n             (\':(\', 4),\n             (\'=)\', 5),\n             (\'=/\', 6),\n             (\':/\', 7),\n             (\':{\', 8),\n             (\';)\', 9)])[i]) for i in x.split())) for x in\n":D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  :D :) \\\n:(  :D :) :D  :D :) :{  :D :) :{  :D :D :D  :S :P  :D :D ;)  :D :D :D \\\n :D :D :(  :D :) :{  :D :) :)  :S ;)  :( :D  :D :)"\n.split("  ")])))\n'
