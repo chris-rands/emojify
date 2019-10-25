@@ -36,7 +36,7 @@ def run_argparse():
     parser = argparse.ArgumentParser(
         description="""
     Obfuscate your python script by converting an input script to an output script
-    that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
+    that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons or emojis.
     -- Chris Rands, 2017-2019"""
     )
     parser.add_argument("-i", "--input", required=True, help="input python script name")

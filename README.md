@@ -2,7 +2,7 @@
 
 **Description**
 
-Obfuscate your python script (or indeed any plain text file) by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons.
+Obfuscate your python script (or indeed any plain text file) by converting an input script to an output script that functions the same (hopefully) but encodes the code as emoji icons, currently emoticons or emojis.
 
 **Usage**
 
