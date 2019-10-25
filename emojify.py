@@ -43,7 +43,13 @@ def run_argparse():
     parser.add_argument(
         "-o", "--output", required=True, help="output python script name"
     )
-    parser.add_argument("-e", "--emoji", dest="emoji", action="store_true")
+    parser.add_argument(
+        "-e",
+        "--emoji",
+        dest="emoji",
+        action="store_true",
+        help="output emojis instead of emoticons",
+    )
     parser.set_defaults(emoji=False)
     return parser.parse_args()
 
