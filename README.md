@@ -1,4 +1,4 @@
-# emojify :)
+# emojify :) 😊
 
 **Description**
 
@@ -27,17 +27,16 @@ running `python emojify.py --input input_script.py --output output_script.py`
 
 `output_script.py` contains:
 
-    from collections import OrderedDict
-    exec("".join(map(chr,[int("".join(str(OrderedDict([(':)', 0),
-                 (':D', 1),
-                 (':P', 2),
-                 (':S', 3),
-                 (':(', 4),
-                 ('=)', 5),
-                 ('=/', 6),
-                 (':/', 7),
-                 (':{', 8),
-                 (';)', 9)])[i]) for i in x.split())) for x in
+    exec("".join(map(chr,[int("".join(str({':(': 4,
+     ':)': 0,
+     ':/': 7,
+     ':D': 1,
+     ':P': 2,
+     ':S': 3,
+     ':{': 8,
+     ';)': 9,
+     '=)': 5,
+     '=/': 6}[i]) for i in x.split())) for x in
     ":D :D :P  :D :D :(  :D :) =)  :D :D :)  :D :D =/  :( :)  :S ;)  :D :) \
     :(  :D :) :D  :D :) :{  :D :) :{  :D :D :D  :S :P  :D :D ;)  :D :D :D \
      :D :D :(  :D :) :{  :D :) :)  :S ;)  :( :D  :D :)  :D :) :)  :D :) :D\
@@ -57,6 +56,23 @@ running `python output_script.py` outputs:
     hello world
     4 + 4 = 8
 
+similarly, running `python3 emojify.py --input input_script.py --output output_script.py --emoji`
+
+`output_script.py` contains:
+
+    exec("".join(map(chr,[int("".join(str({'😀': 0, '😁': 3, '😂': 6, '😃': 1, '😄': 2, '😅': 4, '😉': 7, '😊': 8, '😛': 9, '🤣': 5}[i]) for i in x.split())) for x in
+    "😃 😃 😄  😃 😃 😅  😃 😀 🤣  😃 😃 😀  😃 😃 😂  😅 😀  😁 😛  😃 😀 😅  😃 😀 😃  😃 😀 😊  😃 😀 \
+    😊  😃 😃 😃  😁 😄  😃 😃 😛  😃 😃 😃  😃 😃 😅  😃 😀 😊  😃 😀 😀  😁 😛  😅 😃  😃 😀  😃 😀 😀\
+      😃 😀 😃  😃 😀 😄  😁 😄  😛 😉  😃 😀 😀  😃 😀 😀  😅 😀  😃 😃 😀  😅 😛  😅 😅  😃 😃 😀  🤣\
+     😀  😅 😃  🤣 😊  😃 😀  😁 😄  😁 😄  😁 😄  😁 😄  😃 😃 😅  😃 😀 😃  😃 😃 😂  😃 😃 😉  😃 😃\
+     😅  😃 😃 😀  😁 😄  😃 😃 😀  😅 😛  😁 😄  😅 😁  😁 😄  😃 😃 😀  🤣 😀  😃 😀  😃 😃 😄  😃 😃\
+     😅  😃 😀 🤣  😃 😃 😀  😃 😃 😂  😅 😀  😁 😛  🤣 😄  😁 😄  😅 😁  😁 😄  🤣 😄  😁 😄  😂 😃  \
+    😁 😄  😃 😄 😁  😃 😄 🤣  😁 😛  😅 😂  😃 😀 😄  😃 😃 😃  😃 😃 😅  😃 😀 😛  😛 😉  😃 😃 😂  😅\
+     😀  😛 😉  😃 😀 😀  😃 😀 😀  😅 😀  🤣 😄  😅 😅  🤣 😄  😅 😃  😅 😃  😅 😃  😃 😀"
+    .split("  ")])))
+
+and running `output_script.py` ouputs the same as above.
+
 **Disclaimer**
 
-Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters. Also note if you want to securely protect your code from the eyes of others, this is NOT a good way, so find another way.
+Only tested on Python 3.6+ and on CPython. Not tested on complex scripts, so don't rely on this script to work, not guaranteed to work at all, and it is probably easy to break. One case it will fail is with non-unicode characters. Also note, if you want to securely protect your code from the eyes of others, this is NOT a good way.
