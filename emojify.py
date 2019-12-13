@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-"""
-emojify.py
-
-Obfuscate your python script (or indeed any plain text file) by converting an 
-input script to an output script that functions the same (hopefully) but 
-encodes the code as emoji icons, currently emoticons or emojis.
-"""
-
 import argparse
 from pprint import pformat
 
@@ -88,6 +80,7 @@ def main(in_file, out_file, emoji):
     with open(in_file) as in_f, open(out_file, "w") as out_f:
         # Assumes it's ok to read the entire input file into memory
         out_f.write(encode_string(in_f.read(), alphabet))
+    print("done {}".format(alphabet[0]))
 
 
 if __name__ == "__main__":
