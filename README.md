@@ -1,3 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/emojify.svg)](https://badge.fury.io/py/emojify)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 # emojify :) 😊
 
 **Description**
@@ -10,7 +13,7 @@ Obfuscate your python script (or indeed any plain text file) by converting an in
 
 If installation fails with `pip` for some reason, you can just clone the repository, since there are no dependancies apart from python 3:
 ```
-git clone https://github.com/chris-rands/emojify
+git clone https://github.com/chris-rands/emojify;
 cd emojify
 ```
 
